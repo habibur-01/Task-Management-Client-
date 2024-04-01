@@ -106,7 +106,7 @@ const SignUp = () => {
                 </div>
                 <div className="w-full btn1">
                     <button type="submit">Continue</button>
-                    <p className="text-xs md:text-sm mt-1">{`Don't have an account?`}<Link to={"/login"}> <span className="text-[#646cff] font-bold">Sign in</span></Link></p>
+                    <p className="text-xs md:text-sm mt-1">{`Don't have an account?`}<Link to={"/login"}> <span className="text-[#646cff] font-bold">Login</span></Link></p>
                 </div>
             </form>
         </div>
