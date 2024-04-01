@@ -6,12 +6,14 @@ import "./style.css"
 import "react-datepicker/dist/react-datepicker.css";
 import useAxiosSecure from "../../api/AxiosSecure/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const AddTask = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [selectedValue, setSelectedValue] = useState('1');
     const axiosSecure = useAxiosSecure()
+    const {user} = useAuth()
     console.log(selectedValue)
 
     const handleAddTask = (e) => {
@@ -20,7 +22,7 @@ const AddTask = () => {
         const projectName = form.project.value
         const priority = selectedValue
         const description = form.description.value
-        const task = { projectName, priority, startDate, endDate, description }
+        const task = { projectName, priority, startDate, endDate, description, email:user?.email}
         
         axiosSecure.post('/task', task)
         .then(res=>{
@@ -47,7 +49,7 @@ const AddTask = () => {
         })
     }
     return (
-        <div className="text-write">
+        <div className="">
             <SectionTitle icon={<CiCirclePlus size={32} color="red" />} title={`Add Task`}></SectionTitle>
             <div className="my-8 bg-slate-50 p-10 md:p-20 rounded-md">
                 <form className=" grid grid-cols-1 md:grid-cols-2 gap-8 taskForm" onSubmit={handleAddTask}>
