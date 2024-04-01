@@ -23,10 +23,10 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="flex gap-2 absolute top-4 right-2">
-                    <div>
+                    <div className="cursor-pointer hover:scale-110">
                         <AiOutlineNotification size={20} />
                     </div>
-                    <div className="w-5 h-5">
+                    <div className="w-5 h-5 cursor-pointer hover:scale-110">
                         <img src={settings} className="w-full h-full" alt="" />
                     </div>
                 </div>
@@ -38,6 +38,8 @@ const Navbar = () => {
                     <li><NavLink to="/todo"><span className="flex items-center gap-2"><img src={todo} alt="" className="w-6 h-6 object-cover mr-1" /> To Do </span></NavLink></li>
                     <li><NavLink to="/complete"><span className="flex items-center gap-2"><img src={complete} alt="" className="w-7 h-6 object-cover" /> Complete </span></NavLink></li>
                     <li><NavLink to="/allTask"><span className="flex items-center gap-2"><img src={allTask} alt="" className="w-7 h-6 object-cover" /> All Task </span></NavLink></li>
+                    <li><NavLink to="/signup"><span className="flex items-center gap-2"><img src={allTask} alt="" className="w-7 h-6 object-cover" /> Signup </span></NavLink></li>
+                    <li><NavLink to="/login"><span className="flex items-center gap-2"><img src={allTask} alt="" className="w-7 h-6 object-cover" /> Login </span></NavLink></li>
                 </ul>
             </div>
 

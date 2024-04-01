@@ -1,0 +1,153 @@
+[  {
+    "projectName": "E-commerce Platform",
+    "priority": "2",
+    "startDate": "2024-04-10T12:00:00.000Z",
+    "endDate": "2024-04-30T12:00:00.000Z",
+    "description": "Develop an e-commerce platform with product listings, shopping cart, and payment gateway integration.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Mobile App Development",
+    "priority": "3",
+    "startDate": "2024-05-05T08:00:00.000Z",
+    "endDate": "2024-05-20T08:00:00.000Z",
+    "description": "Create a mobile app for both Android and iOS platforms to provide various services to users.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Marketing Campaign",
+    "priority": "1",
+    "startDate": "2024-05-15T00:00:00.000Z",
+    "endDate": "2024-06-15T00:00:00.000Z",
+    "description": "Launch a marketing campaign targeting specific demographics to increase brand awareness.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Data Analysis Tool",
+    "priority": "2",
+    "startDate": "2024-06-01T09:00:00.000Z",
+    "endDate": "2024-07-01T09:00:00.000Z",
+    "description": "Develop a tool for analyzing large datasets and generating insightful reports for decision-making.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Event Management System",
+    "priority": "1",
+    "startDate": "2024-07-10T15:30:00.000Z",
+    "endDate": "2024-08-10T15:30:00.000Z",
+    "description": "Build a system to manage events, including scheduling, attendee registration, and ticketing.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Customer Relationship Management (CRM) Software",
+    "priority": "2",
+    "startDate": "2024-08-01T10:00:00.000Z",
+    "endDate": "2024-09-01T10:00:00.000Z",
+    "description": "Develop a CRM software to manage interactions with current and potential customers.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Inventory Management System",
+    "priority": "3",
+    "startDate": "2024-09-15T08:00:00.000Z",
+    "endDate": "2024-10-15T08:00:00.000Z",
+    "description": "Create a system for tracking inventory levels, orders, sales, and deliveries.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Website Redesign",
+    "priority": "1",
+    "startDate": "2024-10-01T12:00:00.000Z",
+    "endDate": "2024-11-01T12:00:00.000Z",
+    "description": "Redesign an existing website to improve user experience and update its visual appeal.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Social Media Marketing",
+    "priority": "2",
+    "startDate": "2024-11-10T00:00:00.000Z",
+    "endDate": "2024-12-10T00:00:00.000Z",
+    "description": "Launch a social media marketing campaign to engage with audiences and promote products/services.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Blog Platform Development",
+    "priority": "3",
+    "startDate": "2024-12-15T09:00:00.000Z",
+    "endDate": "2024-01-15T09:00:00.000Z",
+    "description": "Create a platform for users to publish and share blog posts, with features like commenting and user profiles.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Online Learning Portal",
+    "priority": "1",
+    "startDate": "2024-04-01T00:00:00.000Z",
+    "endDate": "2024-04-11T00:00:00.000Z",
+    "description": "Develop a portal for online courses with video lectures, quizzes, and progress tracking for learners.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Employee Performance Management System",
+    "priority": "2",
+    "startDate": "2024-04-10T08:00:00.000Z",
+    "endDate": "2024-04-22T08:00:00.000Z",
+    "description": "Build a system for tracking employee performance, setting goals, and conducting evaluations.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Healthcare Appointment Scheduling App",
+    "priority": "1",
+    "startDate": "2024-04-28T10:30:00.000Z",
+    "endDate": "2024-05-08T10:30:00.000Z",
+    "description": "Create an app for scheduling appointments with healthcare providers, with reminders and patient profiles.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Real Estate Listings Website",
+    "priority": "3",
+    "startDate": "2024-04-10T12:00:00.000Z",
+    "endDate": "2024-05-10T12:00:00.000Z",
+    "description": "Develop a website for listing real estate properties with search functionality and agent profiles.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Financial Management Software",
+    "priority": "2",
+    "startDate": "2024-05-15T08:00:00.000Z",
+    "endDate": "2024-06-15T08:00:00.000Z",
+    "description": "Develop software for managing finances, including budgeting, expense tracking, and financial reporting.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Travel Booking Platform",
+    "priority": "1",
+    "startDate": "2024-06-01T12:00:00.000Z",
+    "endDate": "2024-07-01T12:00:00.000Z",
+    "description": "Create a platform for booking flights, hotels, and activities, with user reviews and itinerary planning.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Customer Feedback System",
+    "priority": "3",
+    "startDate": "2024-07-10T00:00:00.000Z",
+    "endDate": "2024-08-10T00:00:00.000Z",
+    "description": "Build a system for collecting and analyzing customer feedback to improve products and services.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Food Delivery App",
+    "priority": "1",
+    "startDate": "2024-08-15T09:00:00.000Z",
+    "endDate": "2024-09-15T09:00:00.000Z",
+    "description": "Develop an app for ordering food from restaurants, with delivery tracking and payment integration.",
+    "status": "pending"
+  },
+  {
+    "projectName": "Inventory Forecasting Tool",
+    "priority": "2",
+    "startDate": "2024-09-01T10:00:00.000Z",
+    "endDate": "2024-10-01T10:00:00.000Z",
+    "description": "Create a tool for forecasting inventory needs based on historical data and market trends.",
+    "status": "pending"
+  }
+]
