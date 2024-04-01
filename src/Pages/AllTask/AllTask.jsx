@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import useAxiosSecure from "../../api/AxiosSecure/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import TaskCard from "../../Comonents/Shared/TaskCard/TaskCard";
 import { CiCirclePlus } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import './alltask.css'
+import { useEffect, useState } from "react";
 
 const AllTask = () => {
-    const { user, loading } = useAuth()
+    const { user } = useAuth()
     const [currentPage, setCurrentPage] = useState(0);
     const [userTask, setUserTask] = useState([])
     const axiosSecure = useAxiosSecure()
+
     useEffect(() => {
         axiosSecure.get(`/task?page=${currentPage}&email=${user?.email}`)
             .then(res => {
@@ -20,8 +22,9 @@ const AllTask = () => {
             }).catch(err => {
                 console.log(err)
             })
-    }, [axiosSecure, currentPage, user?.email, loading])
-    console.log(userTask?.totalPages)
+    }, [axiosSecure, currentPage, user?.email])
+
+    console.log(userTask)
     const pages = [...Array(userTask?.totalPages).keys()]
     const tasks = userTask?.tasks
     console.log(userTask?.tasks)
@@ -48,7 +51,7 @@ const AllTask = () => {
             <div className="my-8 bg-slate-50 p-10 md:p-20 rounded-md">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-4 md:gap-6 lg:gap-8">
                     {
-                        tasks?.map(task => <TaskCard key={task._id} task={task}></TaskCard>)
+                        tasks?.map(task => <TaskCard key={task._id} task={task} totalTask={userTask?.tasks} setUserTask={setUserTask}></TaskCard>)
                     }
                 </div>
 

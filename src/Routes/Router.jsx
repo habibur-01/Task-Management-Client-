@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import PrivateRoute from "../Comonents/Shared/PrivateRoute/PrivateRoute";
 import AllTask from "../Pages/AllTask/AllTask";
 import CompleteTask from "../Pages/CompleteTask/CompleteTask";
+import UpdateTask from "../Pages/AllTask/UpdateTask/UpdateTask";
 
 const router = createBrowserRouter([
     {
@@ -26,11 +27,15 @@ const router = createBrowserRouter([
         },
         {
          path:"/allTask",
-         element: <AllTask/>
+         element: <PrivateRoute><AllTask/></PrivateRoute>
         },
         {
          path:"/complete",
          element: <CompleteTask/>
+        },
+        {
+         path:"/updateTask",
+         element:<UpdateTask/>
         },
       ]
     },
