@@ -14,7 +14,7 @@ const AllTask = () => {
     const axiosSecure = useAxiosSecure()
 
     useEffect(() => {
-        axiosSecure.get(`/task?page=${currentPage}&email=${user?.email}`)
+        axiosSecure.get(`/task/paginate?page=${currentPage}&email=${user?.email}`)
             .then(res => {
                 // console.log(res.data)
 

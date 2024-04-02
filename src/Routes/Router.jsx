@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         },
         {
          path:"/complete",
-         element: <CompleteTask/>
+         element: <PrivateRoute><CompleteTask/></PrivateRoute>
         },
         {
          path:"/updateTask",
