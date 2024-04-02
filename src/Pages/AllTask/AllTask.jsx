@@ -6,9 +6,10 @@ import { CiCirclePlus } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import './alltask.css'
 import { useEffect, useState } from "react";
+import list from "../../assets/TaskList/task (1).png"
 
 const AllTask = () => {
-    const { user } = useAuth()
+    const { user, loading } = useAuth()
     const [currentPage, setCurrentPage] = useState(0);
     const [userTask, setUserTask] = useState([])
     const axiosSecure = useAxiosSecure()
@@ -23,6 +24,11 @@ const AllTask = () => {
                 console.log(err)
             })
     }, [axiosSecure, currentPage, user?.email])
+    if (loading) {
+        return (<div className="w-full h-[80vh] flex justify-center items-center">
+            <span className="loading loading-ring loading-lg"></span>
+        </div>)
+    }
 
     console.log(userTask)
     const pages = [...Array(userTask?.totalPages).keys()]
@@ -44,16 +50,24 @@ const AllTask = () => {
     return (
         <div>
             <div className="py-2 border-b-4 flex justify-between">
-                <h1 className="text-3xl font-medium flex items-center gap-4">All Task</h1>
+                <h1 className="text-3xl font-medium flex items-center gap-4"> <span><img src={list} className="w-8 h-7 object-cover" alt="" /></span>All Task</h1>
                 <Link to="/addTask"><p className="flex items-center"><CiCirclePlus size={20} color="red" /><span>Add</span></p></Link>
             </div>
 
             <div className="my-8 bg-slate-50 p-10 md:p-20 rounded-md">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-4 md:gap-6 lg:gap-8">
-                    {
-                        tasks?.map(task => <TaskCard key={task._id} task={task} totalTask={userTask?.tasks} setUserTask={setUserTask}></TaskCard>)
-                    }
-                </div>
+                {
+                    tasks?.length === 0 ? <div className="w-full h-[80vh] flex justify-center items-center">
+                        <h1 className="text-2xl">There is no data available yet.</h1>
+                    </div> :
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-4 md:gap-6 lg:gap-8">
+
+                            {
+                                tasks?.map(task => <TaskCard key={task._id} task={task} totalTask={userTask?.tasks} setUserTask={setUserTask}></TaskCard>)
+                            }
+                        </div>
+
+                }
+
 
                 <div className="mx-4 mt-8">
 

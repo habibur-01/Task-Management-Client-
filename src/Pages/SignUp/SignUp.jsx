@@ -15,6 +15,7 @@ const SignUp = () => {
     const [isPassView, setIsPassView] = useState(false)
     const axiosSecure = useAxiosSecure()
     const { crearteUser } = useAuth()
+    const today = new Date();
     const handleSignUp = (e) => {
         e.preventDefault()
         const form = e.target
@@ -23,7 +24,7 @@ const SignUp = () => {
         const password = form.password.value
         const gender = form.gender.value
 
-        const user = { name, email, password, gender }
+        const userDetails = { name, email, password, gender, date:today }
 
         crearteUser(email, password)
             .then(result => {
@@ -34,7 +35,7 @@ const SignUp = () => {
                     // photoURL: data?.data?.display_url
                 })
 
-                axiosSecure.post('/users', user)
+                axiosSecure.post('/users', userDetails)
                     .then(res => {
                         if (res.data.insertedId) {
                             Swal.fire({
@@ -60,7 +61,7 @@ const SignUp = () => {
             })
 
 
-        console.log(user)
+        console.log(userDetails)
 
 
     }

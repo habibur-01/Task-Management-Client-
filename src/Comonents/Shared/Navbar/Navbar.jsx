@@ -25,7 +25,10 @@ const Navbar = () => {
                     <div className="w-14 h-14 rounded-full">
                         {
                             user ? <div className="w-14 h-14 rounded-full">
-                                <img src={user?.photoURL} className="w-full  h-full object-cover rounded-full" alt="" />
+                                {
+                                    user?.photoURL ? <img src={user?.photoURL} className="w-full  h-full object-cover rounded-full" alt="" />:
+                                    <img src={profile} className="w-full  h-full object-cover rounded-full" alt="" />
+                                }
                             </div>:
                             <div className="w-14 h-14 rounded-full">
                                 <img src={profile} className="w-full  h-full object-cover rounded-full" alt="" />
@@ -50,7 +53,7 @@ const Navbar = () => {
             <div>
                 <ul className="space-y-6" id="sidebar">
                     <li><NavLink to="/addTask" ><span className="flex items-center gap-2"><CiCirclePlus size={20} color="red" /> Add Task </span></NavLink></li>
-                    <li><NavLink to="/today"><span className="flex items-center gap-2"><img src={today} alt="" className="w-7 h-6 object-cover" /> Today </span></NavLink></li>
+                    <li><NavLink to="/progress"><span className="flex items-center gap-2"><img src={today} alt="" className="w-7 h-6 object-cover" /> Progrss </span></NavLink></li>
                     <li><NavLink to="/todo"><span className="flex items-center gap-2"><img src={todo} alt="" className="w-6 h-6 object-cover mr-1" /> To Do </span></NavLink></li>
                     <li><NavLink to="/complete"><span className="flex items-center gap-2"><img src={complete} alt="" className="w-7 h-6 object-cover" /> Complete </span></NavLink></li>
                     <li><NavLink to="/allTask"><span className="flex items-center gap-2"><img src={allTask} alt="" className="w-7 h-6 object-cover" /> All Task </span></NavLink></li>

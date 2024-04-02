@@ -15,6 +15,7 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const from = location?.state?.from?.pathname || "/addTask"
+    const today = new Date();
 
     const handleLogIn = (e) => {
         e.preventDefault()
@@ -42,7 +43,7 @@ const Login = () => {
         createUserWithGoogle()
             .then(result => {
                 console.log(result.user)
-                const user = { name: result.user.displayName, email: result.user.email, image:result.user.photoURL }
+                const user = { name: result.user.displayName, email: result.user.email, image:result.user.photoURL, date:today }
                 axiosSecure.post('users', user)
                     .then(res => {
                         if (res.data.insertedId) {

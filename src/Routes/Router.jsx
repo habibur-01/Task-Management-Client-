@@ -7,6 +7,8 @@ import PrivateRoute from "../Comonents/Shared/PrivateRoute/PrivateRoute";
 import AllTask from "../Pages/AllTask/AllTask";
 import CompleteTask from "../Pages/CompleteTask/CompleteTask";
 import UpdateTask from "../Pages/AllTask/UpdateTask/UpdateTask";
+import ToDo from "../Pages/ToDo/ToDo";
+import ProgressTask from "../Pages/ProgressTask/ProgressTask";
 
 const router = createBrowserRouter([
     {
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
         {
          path:"/updateTask",
          element:<UpdateTask/>
+        },
+        {
+         path:"/todo",
+         element:<PrivateRoute><ToDo/></PrivateRoute>
+        },
+        {
+         path:"/progress",
+         element:<PrivateRoute><ProgressTask/></PrivateRoute>
         },
       ]
     },
