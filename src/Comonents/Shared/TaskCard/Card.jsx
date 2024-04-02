@@ -51,17 +51,43 @@ const Card = ({ task, refetch }) => {
 
     const handleOptionSelect = (selectedOption) => {
         setSelected(selectedOption);
-        
-        // axiosSecure.patch(`/task/${_id}`, { status: selectedOption.name })
-        //     .then(res => {
-        //         console.log('Task status updated successfully', res.data);
-        //         refetch(); 
-        //     })
-        //     .catch(error => {
-        //         console.error('Error updating task status:', error);
-        //     });
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, update it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/task/status/${_id}`, { status: selectedOption.name })
+                    .then(res => {
+                        console.log('Task status updated successfully', res.data);
+                        if (res?.data?.modifiedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: "Your task has been updated",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+                    })
+            }
+        }).catch(err => {
+                console.log(err)
+                Swal.fire({
+                    position: "top-end",
+                    icon: "warning",
+                    title: "Somthing is wrong!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
     };
-    console.log(selected)
+    // console.log(selected)
 
     return (
         <div>
