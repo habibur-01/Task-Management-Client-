@@ -9,6 +9,8 @@ import CompleteTask from "../Pages/CompleteTask/CompleteTask";
 import UpdateTask from "../Pages/AllTask/UpdateTask/UpdateTask";
 import ToDo from "../Pages/ToDo/ToDo";
 import ProgressTask from "../Pages/ProgressTask/ProgressTask";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import Profile from "../Pages/Profile/Profile";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
         {
          path:"/progress",
          element:<PrivateRoute><ProgressTask/></PrivateRoute>
+        },
+        {
+         path:"/dashboard",
+         element:<PrivateRoute><Dashboard/></PrivateRoute>
+        },
+        {
+         path:"/editprofile",
+         element:<PrivateRoute><Profile/></PrivateRoute>
         },
       ]
     },
