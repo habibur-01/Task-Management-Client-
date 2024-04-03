@@ -50,11 +50,12 @@ const Login = () => {
                             Swal.fire({
                                 position: "top-end",
                                 icon: "success",
-                                title: "Your task has been added",
+                                title: "Your registration successfull",
                                 showConfirmButton: false,
                                 timer: 1500
                             });
                         }
+                        
                     })
                     navigate(from, { replace: true })
 
@@ -76,7 +77,7 @@ const Login = () => {
     return (
         <div className="w-full min-h-[100vh] flex justify-center items-center">
             <div className="2xl:w-1/3 xl:w-1/3 lg:w-2/5 md:w-1/2 sm:w-2/5 min-h-fit bg-white shadow-md rounded-md md:px-12 md:py-14 p-2 sm:border-2">
-                <h1 className="text-center font-bold">Sign In</h1>
+                <h1 className="text-center text-xl font-bold">Log In</h1>
                 <p className="text-center mt-4 mb-6 font-thin">Please sign in for access your account</p>
                 <form onSubmit={handleLogIn} action="" className="m-2 space-y-4">
                     <div className="flex flex-col space-y-4">

@@ -24,7 +24,7 @@ const SignUp = () => {
         const password = form.password.value
         const gender = form.gender.value
 
-        const userDetails = { name, email, password, gender, date:today }
+        const userDetails = { name, email, password, gender, date: today }
 
         crearteUser(email, password)
             .then(result => {
@@ -66,52 +66,56 @@ const SignUp = () => {
 
     }
     return (
-        <div>
-            <form onSubmit={handleSignUp} action="" className="m-2 space-y-4">
-                <div className="flex flex-col space-y-4">
-                    <label htmlFor="name">Your name</label>
-                    <div className="inputField inline-flex items-center relative">
-                        <input type="text" name="name" id="name" placeholder="type your name" required />
-                        <div className="absolute right-2">
-                            <FaRegUser size={20} />
+        <div className="w-full min-h-[100vh] flex justify-center items-center">
+            <div className="2xl:w-1/3 xl:w-1/3 lg:w-2/5 md:w-1/2 sm:w-2/5 min-h-fit bg-white shadow-md rounded-md md:px-12 md:py-14 p-2 sm:border-2">
+                <h1 className="text-center text-xl font-bold">Sign Up</h1>
+                <p className="text-center mt-4 mb-6 font-thin">Please sign up for access your account</p>
+                <form onSubmit={handleSignUp} action="" className="m-2 space-y-4 ">
+                    <div className="flex flex-col space-y-4">
+                        <label htmlFor="name">Your name</label>
+                        <div className="inputField inline-flex items-center relative">
+                            <input type="text" name="name" id="name" placeholder="type your name" required />
+                            <div className="absolute right-2">
+                                <FaRegUser size={20} />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="flex flex-col space-y-4">
-                    <label htmlFor="gender">Your gender</label>
-                    <div className="inputField inline-flex items-center relative">
-                        <input type="text" name="gender" id="gender" placeholder="" required />
-                        <div className="absolute right-2">
-                            <FaRegUser size={20} />
+                    <div className="flex flex-col space-y-4">
+                        <label htmlFor="gender">Your gender</label>
+                        <div className="inputField inline-flex items-center relative">
+                            <input type="text" name="gender" id="gender" placeholder="" required />
+                            <div className="absolute right-2">
+                                <FaRegUser size={20} />
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="flex flex-col space-y-4">
-                    <label htmlFor="email">Email address</label>
-                    <div className="inputField inline-flex items-center relative">
-                        <input type="email" name="email" id="email" placeholder="type your email" required />
-                        <div className="absolute right-2">
-                            <MdOutlineMail size={20} />
+                    <div className="flex flex-col space-y-4">
+                        <label htmlFor="email">Email address</label>
+                        <div className="inputField inline-flex items-center relative">
+                            <input type="email" name="email" id="email" placeholder="type your email" required />
+                            <div className="absolute right-2">
+                                <MdOutlineMail size={20} />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="inputField flex flex-col space-y-4">
-                    <label htmlFor="password">Password</label>
-                    <div className="inline-flex items-center relative">
-                        <input type={isPassView ? "text" : "password"} name="password" id="password" autoComplete="off" placeholder="type password" required />
-                        <div onClick={() => setIsPassView(!isPassView)} className="absolute right-2">
-                            {isPassView ? <CiUnlock size={20} /> : <CiLock size={20} />}
+                    <div className="inputField flex flex-col space-y-4">
+                        <label htmlFor="password">Password</label>
+                        <div className="inline-flex items-center relative">
+                            <input type={isPassView ? "text" : "password"} name="password" id="password" autoComplete="off" placeholder="type password" required />
+                            <div onClick={() => setIsPassView(!isPassView)} className="absolute right-2">
+                                {isPassView ? <CiUnlock size={20} /> : <CiLock size={20} />}
+                            </div>
                         </div>
                     </div>
+                    <div className="w-full btn1">
+                        <button type="submit">Continue</button>
+                        <p className="text-xs md:text-sm mt-1">{`Don't have an account?`}<Link to={"/login"}> <span className="text-[#646cff] font-bold">Login</span></Link></p>
+                    </div>
+                </form>
                 </div>
-                <div className="w-full btn1">
-                    <button type="submit">Continue</button>
-                    <p className="text-xs md:text-sm mt-1">{`Don't have an account?`}<Link to={"/login"}> <span className="text-[#646cff] font-bold">Login</span></Link></p>
-                </div>
-            </form>
-        </div>
-    );
+            </div>
+            );
 };
 
-export default SignUp;
+            export default SignUp;
