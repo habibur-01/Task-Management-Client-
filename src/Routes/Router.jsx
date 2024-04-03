@@ -13,6 +13,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import Profile from "../Pages/Profile/Profile";
 import AllUsers from "../Pages/Admin/Alluser/AllUsers";
 import AdminDashboard from "../Pages/Admin/AdminDashboard/AdminDashboard";
+import AdminRoute from "../hooks/AdminRoute";
 
 const router = createBrowserRouter([
     {
@@ -61,11 +62,11 @@ const router = createBrowserRouter([
         },
         {
          path: "/allusers",
-         element:<AllUsers/>
+         element:<AdminRoute><AllUsers/></AdminRoute>
         },
         {
          path:"/dashboard/admin",
-         element:<AdminDashboard/>
+         element:<AdminRoute><AdminDashboard/> </AdminRoute>
         }
       ]
     },

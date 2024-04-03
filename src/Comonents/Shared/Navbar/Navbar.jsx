@@ -12,17 +12,20 @@ import { MdAssignmentInd, MdOutlineDashboard } from "react-icons/md";
 import './navbar.css'
 import { useState } from "react";
 import { FaRegUser, FaUsers } from "react-icons/fa";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar = () => {
     const { user, userLogOut } = useAuth()
     const navigate = useNavigate()
     const [isOpen, setIsOpen] = useState(false)
+    const [isAdmin] = useAdmin()
+    console.log(isAdmin)
 
     const handleLogOut = () => {
         userLogOut()
         navigate('/login')
     }
-    const isAdmin = true
+    // const isAdmin = true
 
     return (
         <div className="w-64 bg-slate-300 min-h-screen px-4 py-5 relative">
@@ -55,7 +58,9 @@ const Navbar = () => {
                         <img src={settings} className="w-full h-full" alt="" />
                         {
                             isOpen && <div className="absolute bg-white p-4 rounded-md right-0 top-8 w-32 text-sm space-y-4">
-                                <li className="list-none"><NavLink to={"/dashboard"}>Dashboard</NavLink></li>
+                                {
+                                    (!isAdmin) && <li className="list-none"><NavLink to={"/dashboard"}>Dashboard</NavLink></li>
+                                }
                                 <li className="list-none"><NavLink to={"/editprofile"}>Profile</NavLink></li>
                             </div>
                         }
@@ -67,9 +72,11 @@ const Navbar = () => {
                     {
                         isAdmin ?
                             <><li><NavLink to="/signup" ><span className="flex items-center gap-2"><FaRegUser size={16} color="green" /> Add User </span></NavLink></li>
-                                <li><NavLink to="/allusers"><span className="flex items-center gap-2"><FaUsers size={20}/> All Users </span></NavLink></li>
-                                <li><NavLink to="/dashboard"><span className="flex items-center gap-2"><MdOutlineDashboard size={20} /> Dashboard </span></NavLink></li>
+                                <li><NavLink to="/allusers"><span className="flex items-center gap-2"><FaUsers size={20} /> All Users </span></NavLink></li>
+                                <li><NavLink to="/dashboard/admin"><span className="flex items-center gap-2"><MdOutlineDashboard size={20} /> Dashboard </span></NavLink></li>
                                 <li onClick={handleLogOut}><NavLink to=""><span className={`flex items-center gap-2 ${user ? 'block' : 'hidden'}`}><CiLogout size={20} /> Log out </span></NavLink></li></>
+
+
                             :
                             <><li><NavLink to="/addTask" ><span className="flex items-center gap-2"><CiCirclePlus size={20} color="red" /> Add Task </span></NavLink></li>
                                 <li><NavLink to="/progress"><span className="flex items-center gap-2"><img src={today} alt="" className="w-7 h-6 object-cover" /> Progress </span></NavLink></li>
@@ -80,7 +87,6 @@ const Navbar = () => {
                                 <li><NavLink to="/login"><span className={`flex items-center gap-2 ${user ? 'hidden' : 'block'}`}><CiLogin size={20} />  Login </span></NavLink></li>
                                 <li onClick={handleLogOut}><NavLink to=""><span className={`flex items-center gap-2 ${user ? 'block' : 'hidden'}`}><CiLogout size={20} /> Log out </span></NavLink></li></>
                     }
-
                 </ul>
             </div>
 

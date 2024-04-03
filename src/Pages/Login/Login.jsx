@@ -44,7 +44,7 @@ const Login = () => {
             .then(result => {
                 console.log(result.user)
                 const user = { name: result.user.displayName, email: result.user.email, image:result.user.photoURL, date:today, role:'user' }
-                axiosSecure.post('users', user)
+                axiosSecure.post('/users', user)
                     .then(res => {
                         if (res.data.insertedId) {
                             Swal.fire({

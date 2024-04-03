@@ -16,56 +16,13 @@ const Profile = () => {
     const { data: userData = [] } = useQuery({
         queryKey: ['user'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/users?email=${user.email}`)
+            const res = await axiosSecure.get(`/profile?email=${user.email}`)
             return res.data
         }
     })
     console.log(userData)
 
-    // const handleUpdateProfile = async (e) => {
-    //     e.preventDefault()
-    //     const form = e.target
-    //     const userName = form.name.value
-    //     const userGender = form.gender.value
-
-
-    //     const userDetails = { name: userName, gender: userGender }
-    //     console.log(userDetails)
-
-
-
-    //     await axiosSecure.patch(`/users/${userData[0]._id}`, userDetails)
-    //         .then(res => {
-    //             if (res.data.modifiedCount > 0) {
-    //                 updateProfile({
-    //                     displayName: name,
-    //                     // photoURL: data?.data?.display_url
-    //                 })
-    //                 Swal.fire({
-    //                     position: "top-end",
-    //                     icon: "success",
-    //                     title: "Your task has been added",
-    //                     showConfirmButton: false,
-    //                     timer: 1500
-    //                 });
-    //             }
-    //         }).catch(err => {
-    //             console.log(err)
-    //             Swal.fire({
-    //                 position: "top-end",
-    //                 icon: "warning",
-    //                 title: "Somthing is wrong!",
-    //                 showConfirmButton: false,
-    //                 timer: 1500
-    //             });
-    //         })
-
-
-
-    //     console.log(userDetails)
-
-
-    // }
+    
     return (
         <div>
             <div className="my-8">

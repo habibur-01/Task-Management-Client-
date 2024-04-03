@@ -16,7 +16,7 @@ const AllUsers = () => {
             return res.data
         }
     })
-    console.log(AllUsers)
+    // console.log(allUsers)
 
     const handleContestDelete = (id) => {
         Swal.fire({
@@ -143,7 +143,9 @@ const AllUsers = () => {
 
                                         <span className="badge badge-ghost badge-sm">{data?.email}</span>
                                     </td>
-                                    <td onClick={() => handleMakeAdmin(data._id)}><FaUser size={15} /></td>
+                                    {
+                                        data.role === 'admin' ? <td className="font-medium">Admin</td>:<td onClick={() => handleMakeAdmin(data._id)}><FaUser size={15} /></td>
+                                    }
                                     <th className="space-x-2">
                                         <button onClick={() => handleContestDelete(data._id)} className="btn btn-ghost text-white btn-sm text-xs bg-red-400">Delete</button>
 
