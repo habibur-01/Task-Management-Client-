@@ -11,6 +11,8 @@ import ToDo from "../Pages/ToDo/ToDo";
 import ProgressTask from "../Pages/ProgressTask/ProgressTask";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Profile from "../Pages/Profile/Profile";
+import AllUsers from "../Pages/Admin/Alluser/AllUsers";
+import AdminDashboard from "../Pages/Admin/AdminDashboard/AdminDashboard";
 
 const router = createBrowserRouter([
     {
@@ -57,6 +59,14 @@ const router = createBrowserRouter([
          path:"/editprofile",
          element:<PrivateRoute><Profile/></PrivateRoute>
         },
+        {
+         path: "/allusers",
+         element:<AllUsers/>
+        },
+        {
+         path:"/dashboard/admin",
+         element:<AdminDashboard/>
+        }
       ]
     },
   ]);

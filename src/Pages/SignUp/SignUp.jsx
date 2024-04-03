@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CiLock, CiUnlock } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./signup.css"
 // import ImgUpload from "../../api/ImgUpload/ImgUpload";
 import useAxiosSecure from "../../api/AxiosSecure/useAxiosSecure";
@@ -15,6 +15,7 @@ const SignUp = () => {
     const [isPassView, setIsPassView] = useState(false)
     const axiosSecure = useAxiosSecure()
     const { crearteUser } = useAuth()
+    const navigate = useNavigate()
     const today = new Date();
     const handleSignUp = (e) => {
         e.preventDefault()
@@ -24,7 +25,7 @@ const SignUp = () => {
         const password = form.password.value
         const gender = form.gender.value
 
-        const userDetails = { name, email, password, gender, date: today }
+        const userDetails = { name, email, password, gender, date: today, role:'user' }
 
         crearteUser(email, password)
             .then(result => {
@@ -41,10 +42,11 @@ const SignUp = () => {
                             Swal.fire({
                                 position: "top-end",
                                 icon: "success",
-                                title: "Your task has been added",
+                                title: "Your registration successfull",
                                 showConfirmButton: false,
                                 timer: 1500
                             });
+                            navigate('/login')
                         }
                     }).catch(err => {
                         console.log(err)
