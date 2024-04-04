@@ -28,12 +28,20 @@ const router = createBrowserRouter([
             path: "/",
             element: <Home />
          },
+         {
+            path: "/signup",
+            element: <SignUp />
+         },
+         {
+            path: "/login",
+            element: <Login />
+         },
 
       ]
    },
    {
       path: "/main",
-      element: <Main />,
+      element: <PrivateRoute><Main /></PrivateRoute>,
       children: [
          {
             path: "addTask",
@@ -78,14 +86,7 @@ const router = createBrowserRouter([
          }
       ]
    },
-   {
-      path: "/signup",
-      element: <SignUp />
-   },
-   {
-      path: "/login",
-      element: <Login />
-   },
+
 ]);
 
 export default router;

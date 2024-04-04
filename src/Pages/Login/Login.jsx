@@ -9,14 +9,15 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../api/AxiosSecure/useAxiosSecure";
 import useAdmin from "../../hooks/useAdmin";
 
+
 const Login = () => {
     const [isPassView, setIsPassView] = useState(false)
     const { logInUser, createUserWithGoogle, user } = useAuth()
-    const [isAdmin] = useAdmin()
     const axiosSecure = useAxiosSecure()
+    const [isAdmin] = useAdmin()
     const navigate = useNavigate()
     const location = useLocation()
-    const from = location?.state?.from?.pathname || "/addTask"
+    const from = location?.state?.from?.pathname || "/main/allusers" || "/main/addTask"
     const today = new Date();
 
     const handleLogIn = (e) => {
@@ -30,6 +31,7 @@ const Login = () => {
             .then(result => {
                 console.log(result.user)
                 navigate(from, { replace: true })
+
             }).catch(err => {
                 console.log(err)
                 Swal.fire({
@@ -42,12 +44,11 @@ const Login = () => {
             })
     }
     useEffect(() => {
-        // If user is already logged in, navigate based on their role
         if (user) {
             const redirectTo = isAdmin ? "/main/allusers" : "/main/addTask";
             navigate(redirectTo, { replace: true });
         }
-    }, [isAdmin, navigate, user]);
+    }, [user, navigate, isAdmin]);
 
     const handleGoogleSignIn = () => {
         createUserWithGoogle()
@@ -66,11 +67,11 @@ const Login = () => {
                             });
                         }
 
-                    })
-                    .then(() => {
-                        const redirectTo = isAdmin ? "/allusers" : "/main/addTask";
+                    }).then(() => {
+                        const redirectTo = isAdmin ? "/main/allusers" : "/main/addTask";
                         navigate(redirectTo, { replace: true });
                     });
+
 
             }
             ).catch(err => {

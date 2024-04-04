@@ -35,13 +35,13 @@ const Navbar = () => {
         <li><NavLink to="/main/allTask"><span className="flex items-center gap-2"><img src={allTask} alt="" className="w-7 h-6 object-cover" /> All Task </span></NavLink></li>
         {/* <li><NavLink to="/signup"><span className={`flex items-center gap-2 ${user ? 'hidden' : 'block'}`}><MdAssignmentInd size={20} />Signup </span></NavLink></li>
         <li><NavLink to="/login"><span className={`flex items-center gap-2 ${user ? 'hidden' : 'block'}`}><CiLogin size={20} />  Login </span></NavLink></li> */}
-        <li onClick={handleLogOut}><NavLink to=""><span className={`flex items-center gap-2 ${user ? 'block' : 'hidden'}`}><CiLogout size={20} /> Log out </span></NavLink></li>
+        <li onClick={handleLogOut}><span className={`flex items-center gap-2 hover:cursor-pointer ${user ? 'block' : 'hidden'}`}><CiLogout size={20} /> Log out </span></li>
     </>
     const adminNav = <>
         <li><NavLink to="/signup" ><span className="flex items-center gap-2"><FaRegUser size={16} color="green" /> Add User </span></NavLink></li>
         <li><NavLink to="/main/allusers"><span className="flex items-center gap-2"><FaUsers size={20} /> All Users </span></NavLink></li>
-        <li><NavLink to="/main/dashboard/admin"><span className="flex items-center gap-2"><MdOutlineDashboard size={20} /> Dashboard </span></NavLink></li>
-        <li onClick={handleLogOut}><NavLink to=""><span className={`flex items-center gap-2 ${user ? 'block' : 'hidden'}`}><CiLogout size={20} /> Log out </span></NavLink></li>
+        <li><NavLink to="/main/dashboard"><span className="flex items-center gap-2"><MdOutlineDashboard size={20} /> Dashboard </span></NavLink></li>
+        <li onClick={handleLogOut}><span className={`flex items-center gap-2 hover:cursor-pointer ${user ? 'block' : 'hidden'}`}><CiLogout size={20} /> Log out </span></li>
     </>
 
     return (

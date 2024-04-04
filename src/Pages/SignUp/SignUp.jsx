@@ -25,7 +25,7 @@ const SignUp = () => {
         const password = form.password.value
         const gender = form.gender.value
 
-        const userDetails = { name, email, password, gender, date: today, role: 'user' }
+        
         if (!/^(?=.*?[A-Z])(?=.*?[#?!@$%^&*-]).{6,}$/.test(password)) {
             return Swal.fire({
                 position: "top-end",
@@ -36,6 +36,7 @@ const SignUp = () => {
             }); 
 
         }
+        const userDetails = { name, email, password, gender, date: today, role: 'user' }
 
         crearteUser(email, password)
             .then(result => {

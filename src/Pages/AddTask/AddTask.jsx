@@ -22,7 +22,7 @@ const AddTask = () => {
         const projectName = form.project.value
         const priority = selectedValue
         const description = form.description.value
-        const task = { projectName, priority, startDate, endDate, description, email:user?.email}
+        const task = { projectName, priority, startDate, endDate, description, email:user?.email,status:'pending'}
         
         axiosSecure.post('/task', task)
         .then(res=>{
