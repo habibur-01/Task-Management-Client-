@@ -26,9 +26,9 @@ const Profile = () => {
     return (
         <div>
             <div className="my-8">
-                <h1 className="text-2xl font-bold uppercase">Hi! Welcome to profile</h1>
+                <h1 className="text-2xl font-bold uppercase">Hi! Welcome back</h1>
             </div>
-            <div className="my-8 bg-slate-50 p-10 md:p-20 rounded-md lg:flex justify-center gap-8 ">
+            <div className="my-8 bg-slate-50 p-10 md:p-20 rounded-md flex justify-center gap-8 ">
                 <div className="space-y-4  flex flex-col justify-center items-center w-64">
                     <div className="w-14 h-14 rounded-full">
                         {

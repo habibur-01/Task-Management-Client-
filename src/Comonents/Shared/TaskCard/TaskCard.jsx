@@ -40,7 +40,7 @@ const TaskCard = ({ task }) => {
 
     return (
         <div>
-            <div className="card w-96 bg-slate-200 text-black-content">
+            <div className="card xl:w-96 sm:w-80 bg-slate-200 text-black-content">
                 <div className="card-body">
                     <h2 className="card-title">{projectName}</h2>
                     <p className="text-wrap">{description.slice(0, 200)}</p>

@@ -14,11 +14,13 @@ import Profile from "../Pages/Profile/Profile";
 import AllUsers from "../Pages/Admin/Alluser/AllUsers";
 import AdminDashboard from "../Pages/Admin/AdminDashboard/AdminDashboard";
 import AdminRoute from "../hooks/AdminRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Main/>,
+      errorElement:<ErrorPage/>,
       children:[
         {
            path: "/addTask",

@@ -1,10 +1,11 @@
 import { Navigate, useLocation } from "react-router-dom";
 import useAdmin from "./useAdmin";
+
+import {PropTypes} from "prop-types"
 import useAuth from "./useAuth";
 
-
-const AdminRoute = (children) => {
-    const [user, loading] = useAuth()
+const AdminRoute = ({children}) => {
+    const {user, loading} = useAuth()
     const [isAdmin, isAdminLoading] = useAdmin()
     const location = useLocation()
     if (loading || isAdminLoading) {
@@ -22,5 +23,7 @@ const AdminRoute = (children) => {
         <Navigate to="/login" state={{ from: location }} replace></Navigate>
     );
 };
-
+AdminRoute.propTypes={
+    children: PropTypes.node
+}
 export default AdminRoute;
