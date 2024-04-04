@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/Logo/task.png"
 import Banner from "./Banner/Banner";
+import Featured from "./Featured/Featured";
+import Whyus from "./Why us/Whyus";
+import Testimonials from "./Testimonials/Testimonials";
 
 const Home = () => {
     return (
@@ -15,7 +18,7 @@ const Home = () => {
                 <div>
                     <ul className="flex gap-6">
                         <li><NavLink to={'/login'}>Login</NavLink></li>
-                        <li><NavLink to={'/login'}>Signup</NavLink></li>
+                        <li><NavLink to={'/signup'}>Signup</NavLink></li>
 
                     </ul>
                 </div>
@@ -23,6 +26,10 @@ const Home = () => {
             <div>
                 <Banner></Banner>
             </div>
+            
+            <Whyus></Whyus>
+            <Featured></Featured>
+            <Testimonials></Testimonials>
 
         </div>
     );

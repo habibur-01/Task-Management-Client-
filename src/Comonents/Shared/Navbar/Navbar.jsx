@@ -2,13 +2,13 @@ import { NavLink, useNavigate } from "react-router-dom";
 import profile from "../../../assets/profile.png"
 import settings from "../../../assets/update.png"
 import todo from "../../../assets/to-do-list.png"
-import { CiCirclePlus, CiLogin, CiLogout, CiMenuFries } from "react-icons/ci";
+import { CiCirclePlus,  CiLogout, CiMenuFries } from "react-icons/ci";
 import complete from "../../../assets/Complete/completed-task.png"
 import allTask from "../../../assets/TaskList/task (1).png"
 import today from "../../../assets/clipboard.png"
 import { AiOutlineNotification } from "react-icons/ai";
 import useAuth from "../../../hooks/useAuth";
-import { MdAssignmentInd, MdOutlineDashboard } from "react-icons/md";
+import {  MdOutlineDashboard } from "react-icons/md";
 import './navbar.css'
 import { useState } from "react";
 import { FaRegUser, FaUsers } from "react-icons/fa";
@@ -24,7 +24,7 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         userLogOut()
-        navigate('/login')
+        navigate('/')
     }
     // const isAdmin = true
     const userNav = <>

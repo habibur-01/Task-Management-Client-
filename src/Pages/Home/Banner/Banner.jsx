@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import "./banner.css"
 
 const Banner = () => {
@@ -6,9 +7,9 @@ const Banner = () => {
 
     return (
         <div className="banner flex justify-center items-center">
-        <div className=' w-1/2 bg-[#464650] shadow-md flex flex-col justify-center items-center space-y-4 text-white border-[1px] h-80 bg-opacity-75 rounded-md backdrop-blur-sm'>
+        <div className=' lg:w-1/2 w-3/4 sm:bg-[#464650] shadow-md flex flex-col justify-center items-center space-y-4 text-white sm:border-[1px] h-80 bg-opacity-75 rounded-md sm:backdrop-blur-sm'>
                 <h1 className='text-4xl font-bold uppercase text-center '>Make Your life easy by <br/>organize your task</h1>
-                <button className='btn bg-[#ff9f9f] border-none hover:scale-105'>Explore it!</button>
+                <Link to={'/login'}><button className='btn bg-[#ff9f9f] border-none hover:scale-105'>Explore it!</button></Link>
             </div>
 
 

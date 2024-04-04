@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CiLock, CiUnlock } from "react-icons/ci";
 import { MdOutlineMail } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
@@ -7,10 +7,12 @@ import "./login.css"
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../api/AxiosSecure/useAxiosSecure";
+import useAdmin from "../../hooks/useAdmin";
 
 const Login = () => {
     const [isPassView, setIsPassView] = useState(false)
-    const { logInUser, createUserWithGoogle } = useAuth()
+    const { logInUser, createUserWithGoogle, user } = useAuth()
+    const [isAdmin] = useAdmin()
     const axiosSecure = useAxiosSecure()
     const navigate = useNavigate()
     const location = useLocation()
@@ -39,11 +41,19 @@ const Login = () => {
                 });
             })
     }
+    useEffect(() => {
+        // If user is already logged in, navigate based on their role
+        if (user) {
+            const redirectTo = isAdmin ? "/main/allusers" : "/main/addTask";
+            navigate(redirectTo, { replace: true });
+        }
+    }, [isAdmin, navigate, user]);
+
     const handleGoogleSignIn = () => {
         createUserWithGoogle()
             .then(result => {
                 console.log(result.user)
-                const user = { name: result.user.displayName, email: result.user.email, image:result.user.photoURL, date:today, role:'user' }
+                const user = { name: result.user.displayName, email: result.user.email, image: result.user.photoURL, date: today, role: 'user' }
                 axiosSecure.post('/users', user)
                     .then(res => {
                         if (res.data.insertedId) {
@@ -55,9 +65,12 @@ const Login = () => {
                                 timer: 1500
                             });
                         }
-                        
+
                     })
-                    navigate(from, { replace: true })
+                    .then(() => {
+                        const redirectTo = isAdmin ? "/main/allusers" : "/main/addTask";
+                        navigate(redirectTo, { replace: true });
+                    });
 
             }
             ).catch(err => {
