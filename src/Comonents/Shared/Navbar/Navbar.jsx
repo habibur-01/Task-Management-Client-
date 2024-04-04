@@ -28,19 +28,19 @@ const Navbar = () => {
     }
     // const isAdmin = true
     const userNav = <>
-        <li><NavLink to="/addTask" ><span className="flex items-center gap-2"><CiCirclePlus size={20} color="red" /> Add Task </span></NavLink></li>
-        <li><NavLink to="/progress"><span className="flex items-center gap-2"><img src={today} alt="" className="w-7 h-6 object-cover" /> Progress </span></NavLink></li>
-        <li><NavLink to="/todo"><span className="flex items-center gap-2"><img src={todo} alt="" className="w-6 h-6 object-cover mr-1" /> To Do </span></NavLink></li>
-        <li><NavLink to="/complete"><span className="flex items-center gap-2"><img src={complete} alt="" className="w-7 h-6 object-cover" /> Completed </span></NavLink></li>
-        <li><NavLink to="/allTask"><span className="flex items-center gap-2"><img src={allTask} alt="" className="w-7 h-6 object-cover" /> All Task </span></NavLink></li>
-        <li><NavLink to="/signup"><span className={`flex items-center gap-2 ${user ? 'hidden' : 'block'}`}><MdAssignmentInd size={20} />Signup </span></NavLink></li>
-        <li><NavLink to="/login"><span className={`flex items-center gap-2 ${user ? 'hidden' : 'block'}`}><CiLogin size={20} />  Login </span></NavLink></li>
+        <li><NavLink to="/main/addTask" ><span className="flex items-center gap-2"><CiCirclePlus size={20} color="red" /> Add Task </span></NavLink></li>
+        <li><NavLink to="/main/progress"><span className="flex items-center gap-2"><img src={today} alt="" className="w-7 h-6 object-cover" /> Progress </span></NavLink></li>
+        <li><NavLink to="/main/todo"><span className="flex items-center gap-2"><img src={todo} alt="" className="w-6 h-6 object-cover mr-1" /> To Do </span></NavLink></li>
+        <li><NavLink to="/main/complete"><span className="flex items-center gap-2"><img src={complete} alt="" className="w-7 h-6 object-cover" /> Completed </span></NavLink></li>
+        <li><NavLink to="/main/allTask"><span className="flex items-center gap-2"><img src={allTask} alt="" className="w-7 h-6 object-cover" /> All Task </span></NavLink></li>
+        {/* <li><NavLink to="/signup"><span className={`flex items-center gap-2 ${user ? 'hidden' : 'block'}`}><MdAssignmentInd size={20} />Signup </span></NavLink></li>
+        <li><NavLink to="/login"><span className={`flex items-center gap-2 ${user ? 'hidden' : 'block'}`}><CiLogin size={20} />  Login </span></NavLink></li> */}
         <li onClick={handleLogOut}><NavLink to=""><span className={`flex items-center gap-2 ${user ? 'block' : 'hidden'}`}><CiLogout size={20} /> Log out </span></NavLink></li>
     </>
     const adminNav = <>
         <li><NavLink to="/signup" ><span className="flex items-center gap-2"><FaRegUser size={16} color="green" /> Add User </span></NavLink></li>
-        <li><NavLink to="/allusers"><span className="flex items-center gap-2"><FaUsers size={20} /> All Users </span></NavLink></li>
-        <li><NavLink to="/dashboard/admin"><span className="flex items-center gap-2"><MdOutlineDashboard size={20} /> Dashboard </span></NavLink></li>
+        <li><NavLink to="/main/allusers"><span className="flex items-center gap-2"><FaUsers size={20} /> All Users </span></NavLink></li>
+        <li><NavLink to="/main/dashboard/admin"><span className="flex items-center gap-2"><MdOutlineDashboard size={20} /> Dashboard </span></NavLink></li>
         <li onClick={handleLogOut}><NavLink to=""><span className={`flex items-center gap-2 ${user ? 'block' : 'hidden'}`}><CiLogout size={20} /> Log out </span></NavLink></li>
     </>
 
@@ -84,9 +84,9 @@ const Navbar = () => {
                         {
                             isOpen && <div className="text-sm space-y-4 absolute w-52 bg-slate-100 rounded-md z-20 py-4 px-5 right-2 top-16">
                                 {
-                                    (!isAdmin) && <li className="list-none"><NavLink to={"/dashboard"}>Dashboard</NavLink></li>
+                                    (!isAdmin) && <li className="list-none"><NavLink to={"/main/dashboard"}>Dashboard</NavLink></li>
                                 }
-                                <li className="list-none"><NavLink to={"/editprofile"}>Profile</NavLink></li>
+                                <li className="list-none"><NavLink to={"/main/profile"}>Profile</NavLink></li>
                             </div>
                         }
                     </div>
@@ -124,9 +124,9 @@ const Navbar = () => {
                             {
                                 isOpen && <div className="absolute bg-white p-4 rounded-md right-0 top-8 w-32 text-sm space-y-4">
                                     {
-                                        (!isAdmin) && <li className="list-none"><NavLink to={"/dashboard"}>Dashboard</NavLink></li>
+                                        (!isAdmin) && <li className="list-none"><NavLink to={"/main/dashboard"}>Dashboard</NavLink></li>
                                     }
-                                    <li className="list-none"><NavLink to={"/editprofile"}>Profile</NavLink></li>
+                                    <li className="list-none"><NavLink to={"/main/profile"}>Profile</NavLink></li>
                                 </div>
                             }
                         </div>

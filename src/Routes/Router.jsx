@@ -15,63 +15,77 @@ import AllUsers from "../Pages/Admin/Alluser/AllUsers";
 import AdminDashboard from "../Pages/Admin/AdminDashboard/AdminDashboard";
 import AdminRoute from "../hooks/AdminRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Home from "../Pages/Home/Home";
+import Root from "../Layout/Root.jsx/Root";
 
 const router = createBrowserRouter([
-    {
+   {
       path: "/",
-      element: <Main/>,
-      errorElement:<ErrorPage/>,
-      children:[
-        {
-           path: "/addTask",
-           element: <PrivateRoute><AddTask/></PrivateRoute>
-        },
-        {
-           path: "/signup",
-           element: <SignUp/>
-        },
-        {
-           path: "/login",
-           element: <Login/>
-        },
-        {
-         path:"/allTask",
-         element: <PrivateRoute><AllTask/></PrivateRoute>
-        },
-        {
-         path:"/complete",
-         element: <PrivateRoute><CompleteTask/></PrivateRoute>
-        },
-        {
-         path:"/updateTask",
-         element:<UpdateTask/>
-        },
-        {
-         path:"/todo",
-         element:<PrivateRoute><ToDo/></PrivateRoute>
-        },
-        {
-         path:"/progress",
-         element:<PrivateRoute><ProgressTask/></PrivateRoute>
-        },
-        {
-         path:"/dashboard",
-         element:<PrivateRoute><Dashboard/></PrivateRoute>
-        },
-        {
-         path:"/editprofile",
-         element:<PrivateRoute><Profile/></PrivateRoute>
-        },
-        {
-         path: "/allusers",
-         element:<AdminRoute><AllUsers/></AdminRoute>
-        },
-        {
-         path:"/dashboard/admin",
-         element:<AdminRoute><AdminDashboard/> </AdminRoute>
-        }
-      ]
-    },
-  ]);
+      element: <Root />,
+      errorElement: <ErrorPage />,
+      children: [
+         {
+            path: "/",
+            element: <Home />
+         },
 
-  export default router;
+      ]
+   },
+   {
+      path: "/main",
+      element: <Main />,
+      children: [
+         {
+            path: "addTask",
+            element: <PrivateRoute><AddTask /></PrivateRoute>
+         },
+
+         {
+            path: "allTask",
+            element: <PrivateRoute><AllTask /></PrivateRoute>
+         },
+         {
+            path: "complete",
+            element: <PrivateRoute><CompleteTask /></PrivateRoute>
+         },
+         {
+            path: "updateTask",
+            element: <UpdateTask />
+         },
+         {
+            path: "todo",
+            element: <PrivateRoute><ToDo /></PrivateRoute>
+         },
+         {
+            path: "progress",
+            element: <PrivateRoute><ProgressTask /></PrivateRoute>
+         },
+         {
+            path: "dashboard",
+            element: <PrivateRoute><Dashboard /></PrivateRoute>
+         },
+         {
+            path: "profile",
+            element: <PrivateRoute><Profile /></PrivateRoute>
+         },
+         {
+            path: "allusers",
+            element: <AdminRoute><AllUsers /></AdminRoute>
+         },
+         {
+            path: "dashboard/admin",
+            element: <AdminRoute><AdminDashboard /> </AdminRoute>
+         }
+      ]
+   },
+   {
+      path: "/signup",
+      element: <SignUp />
+   },
+   {
+      path: "/login",
+      element: <Login />
+   },
+]);
+
+export default router;
