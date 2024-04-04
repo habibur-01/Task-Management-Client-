@@ -68,7 +68,7 @@ const Login = () => {
 
                     })
                     .then(() => {
-                        const redirectTo = isAdmin ? "/main/allusers" : "/main/addTask";
+                        const redirectTo = isAdmin ? "/allusers" : "/main/addTask";
                         navigate(redirectTo, { replace: true });
                     });
 

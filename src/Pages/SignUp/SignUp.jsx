@@ -25,7 +25,17 @@ const SignUp = () => {
         const password = form.password.value
         const gender = form.gender.value
 
-        const userDetails = { name, email, password, gender, date: today, role:'user' }
+        const userDetails = { name, email, password, gender, date: today, role: 'user' }
+        if (!/^(?=.*?[A-Z])(?=.*?[#?!@$%^&*-]).{6,}$/.test(password)) {
+            return Swal.fire({
+                position: "top-end",
+                icon: "warning",
+                title: "Minimum six characters, at least one uppercase & special charecter!",
+                showConfirmButton: false,
+                timer: 1500
+            }); 
+
+        }
 
         crearteUser(email, password)
             .then(result => {
@@ -115,9 +125,9 @@ const SignUp = () => {
                         <p className="text-xs md:text-sm mt-1">{`Don't have an account?`}<Link to={"/login"}> <span className="text-[#646cff] font-bold">Login</span></Link></p>
                     </div>
                 </form>
-                </div>
             </div>
-            );
+        </div>
+    );
 };
 
-            export default SignUp;
+export default SignUp;
