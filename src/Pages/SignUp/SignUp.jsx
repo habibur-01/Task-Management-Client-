@@ -9,6 +9,7 @@ import useAxiosSecure from "../../api/AxiosSecure/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth.jsx"
 import { updateProfile } from "firebase/auth";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 
 const SignUp = () => {
@@ -80,7 +81,7 @@ const SignUp = () => {
     }
     return (
         <div className="w-full min-h-[100vh] flex justify-center items-center">
-            <div className="2xl:w-1/3 xl:w-1/3 lg:w-2/5 md:w-1/2 sm:w-2/5 min-h-fit bg-white shadow-md rounded-md md:px-12 md:py-14 p-2 sm:border-2">
+            <div className=" relative 2xl:w-1/3 xl:w-1/3 lg:w-2/5 md:w-1/2 sm:w-2/5 min-h-fit bg-white shadow-md rounded-md md:px-12 md:py-14 p-2 sm:border-2">
                 <h1 className="text-center text-xl font-bold">Sign Up</h1>
                 <p className="text-center mt-4 mb-6 font-thin">Please sign up for access your account</p>
                 <form onSubmit={handleSignUp} action="" className="m-2 space-y-4 ">
@@ -126,6 +127,9 @@ const SignUp = () => {
                         <p className="text-xs md:text-sm mt-1">{`Don't have an account?`}<Link to={"/login"}> <span className="text-[#646cff] font-bold">Login</span></Link></p>
                     </div>
                 </form>
+                <div className="absolute top-6 left-4">
+                    <Link to={"/"}><FaArrowLeftLong/></Link>
+                </div>
             </div>
         </div>
     );

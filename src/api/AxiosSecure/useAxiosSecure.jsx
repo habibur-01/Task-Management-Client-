@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const axiosSecure = axios.create({
-    baseURL: 'https://task-management-server-4gc3simgq-habibur01s-projects.vercel.app',
+    baseURL: 'https://task-management-server-seven-steel.vercel.app',
     withCredentials: true
 })
 
